@@ -1,16 +1,14 @@
 module.exports = {
-    "prefix": "v",
-    "ignoreIssuesWith": [
-        "duplicate",
-        "wontfix",
-        "invalid",
-        "help wanted"
-    ],
-    "template": {
-        "issue": "- [{{text}}]({{url}}) {{name}}"
-    },
+    "prefix": "Release ",
+    "data-source":"prs",
+    "only-milestones":true,
     "groupBy": {
-        "Enhancements:": ["enhancement", "internal"],
-        "Bug Fixes:": ["bug"]
+        "Enhancements:": ["release-notes-enhancement"],
+        "Bug Fixes:": ["release-notes-bug"],
+        "Release": ["release-notes"]
+    },
+    "template": {
+        "issue": "- [{{text}}]({{url}}) {{name}}",
+        "commit": "- {{message}}"
     }
 };
