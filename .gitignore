@@ -8,4 +8,4 @@ coverage
 dist
 bin
 test/**.js.xml
-.idea/
+.idea
