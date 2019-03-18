@@ -1,7 +1,5 @@
 FROM node
 
-RUN npm install github-release-notes -g
+ADD . /
 
-ADD .grenrc.js /
-
-ENTRYPOINT exec gren r -r ${GREN_REPO} -u zupit -o --tags=all -T ${GREN_TOKEN}
+ENTRYPOINT exec ./bin/gren.js notify -r ${GREN_REPO} -u zupit -o --tags=${TAG} -T ${GREN_TOKEN} --addresses=${ADDR_LIST} --notifier=notifications@zup.com.br
